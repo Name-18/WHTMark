@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WHT Watermark Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css" />
 </head>
+
 <body>
 
   <!-- ── HEADER ── -->
@@ -55,7 +59,8 @@
           <span class="preview-name" id="prev-cover-name"></span>
         </div>
 
-        <div class="upload-zone" id="zone-wm" onclick="document.getElementById('inp-wm').click()" style="margin-top:12px">
+        <div class="upload-zone" id="zone-wm" onclick="document.getElementById('inp-wm').click()"
+          style="margin-top:12px">
           <div class="upload-icon">◈</div>
           <p class="upload-label">Watermark Image</p>
           <p class="upload-hint">32×32 RGB · PNG / JPG</p>
@@ -71,7 +76,8 @@
       <section class="card" id="card-embed">
         <div class="card-tag">STEP 02</div>
         <h2 class="card-title">Embed Watermark</h2>
-        <p class="card-desc">Applies entropy-based block selection, Logistic chaotic encryption, WHT transform, and difference-based coefficient embedding.</p>
+        <p class="card-desc">Applies entropy-based block selection, Logistic chaotic encryption, WHT transform, and
+          difference-based coefficient embedding.</p>
         <button class="btn btn-primary" id="btn-embed">
           <span class="btn-icon">⊕</span> Embed Watermark
         </button>
@@ -97,27 +103,27 @@
           <div class="field-group" id="param-noise">
             <label class="field-label">Noise Variance <span class="param-val" id="val-noise">0.01</span></label>
             <input type="range" class="field-range" id="rng-noise" min="0.001" max="0.1" step="0.001" value="0.01"
-                   oninput="document.getElementById('val-noise').textContent=this.value" />
+              oninput="document.getElementById('val-noise').textContent=this.value" />
           </div>
           <div class="field-group hidden" id="param-jpeg">
             <label class="field-label">JPEG Quality <span class="param-val" id="val-jpeg">85</span></label>
             <input type="range" class="field-range" id="rng-jpeg" min="75" max="95" step="1" value="85"
-                   oninput="document.getElementById('val-jpeg').textContent=this.value" />
+              oninput="document.getElementById('val-jpeg').textContent=this.value" />
           </div>
           <div class="field-group hidden" id="param-crop">
             <label class="field-label">Crop % <span class="param-val" id="val-crop">10</span>%</label>
             <input type="range" class="field-range" id="rng-crop" min="5" max="40" step="5" value="10"
-                   oninput="document.getElementById('val-crop').textContent=this.value" />
+              oninput="document.getElementById('val-crop').textContent=this.value" />
           </div>
           <div class="field-group hidden" id="param-rot">
             <label class="field-label">Rotation Angle <span class="param-val" id="val-rot">1</span>°</label>
             <input type="range" class="field-range" id="rng-rot" min="0" max="3" step="0.5" value="1"
-                   oninput="document.getElementById('val-rot').textContent=this.value" />
+              oninput="document.getElementById('val-rot').textContent=this.value" />
           </div>
           <div class="field-group hidden" id="param-scale">
             <label class="field-label">Scale Factor <span class="param-val" id="val-scale">0.90</span></label>
             <input type="range" class="field-range" id="rng-scale" min="0.5" max="2.0" step="0.05" value="0.90"
-                   oninput="document.getElementById('val-scale').textContent=parseFloat(this.value).toFixed(2)" />
+              oninput="document.getElementById('val-scale').textContent=parseFloat(this.value).toFixed(2)" />
           </div>
         </div>
 
@@ -212,7 +218,8 @@
             <div class="img-placeholder" id="ph-extracted">
               <span>Run Extract to recover watermark</span>
             </div>
-            <img id="disp-extracted" class="result-img hidden" />
+            <img id="disp-extracted" class="result-img hidden"
+              style="image-rendering:pixelated; image-rendering:crisp-edges;" />
           </div>
         </div>
 
@@ -227,7 +234,9 @@
             <div class="metric-label">PSNR</div>
             <div class="metric-value" id="mv-psnr">—</div>
             <div class="metric-unit">dB · imperceptibility</div>
-            <div class="metric-bar-track"><div class="metric-bar" id="mb-psnr"></div></div>
+            <div class="metric-bar-track">
+              <div class="metric-bar" id="mb-psnr"></div>
+            </div>
             <div class="metric-ref">Target ≥ 35 dB</div>
           </div>
 
@@ -235,7 +244,9 @@
             <div class="metric-label">SSIM</div>
             <div class="metric-value" id="mv-ssim">—</div>
             <div class="metric-unit">structural similarity</div>
-            <div class="metric-bar-track"><div class="metric-bar" id="mb-ssim"></div></div>
+            <div class="metric-bar-track">
+              <div class="metric-bar" id="mb-ssim"></div>
+            </div>
             <div class="metric-ref">Target ≥ 0.93</div>
           </div>
 
@@ -243,7 +254,9 @@
             <div class="metric-label">NC</div>
             <div class="metric-value" id="mv-nc">—</div>
             <div class="metric-unit">normalized correlation</div>
-            <div class="metric-bar-track"><div class="metric-bar" id="mb-nc"></div></div>
+            <div class="metric-bar-track">
+              <div class="metric-bar" id="mb-nc"></div>
+            </div>
             <div class="metric-ref">Target ≥ 0.90</div>
           </div>
 
@@ -251,7 +264,9 @@
             <div class="metric-label">BER</div>
             <div class="metric-value" id="mv-ber">—</div>
             <div class="metric-unit">bit error rate</div>
-            <div class="metric-bar-track"><div class="metric-bar inverted" id="mb-ber"></div></div>
+            <div class="metric-bar-track">
+              <div class="metric-bar inverted" id="mb-ber"></div>
+            </div>
             <div class="metric-ref">Target ≈ 0.00</div>
           </div>
 
@@ -265,10 +280,13 @@
           <div class="algo-steps">
             <div class="algo-step"><span class="step-num">01</span><span>RGB channel separation</span></div>
             <div class="algo-step"><span class="step-num">02</span><span>4×4 block partitioning</span></div>
-            <div class="algo-step"><span class="step-num">03</span><span>Entropy-based block selection (E₁+E₂)</span></div>
-            <div class="algo-step"><span class="step-num">04</span><span>Logistic chaotic encryption (μ=4, x₀=0.398)</span></div>
+            <div class="algo-step"><span class="step-num">03</span><span>Entropy-based block selection (E₁+E₂)</span>
+            </div>
+            <div class="algo-step"><span class="step-num">04</span><span>Logistic chaotic encryption (μ=4,
+                x₀=0.398)</span></div>
             <div class="algo-step"><span class="step-num">05</span><span>Walsh-Hadamard Transform (H₄)</span></div>
-            <div class="algo-step"><span class="step-num">06</span><span>Difference-based coefficient pair selection</span></div>
+            <div class="algo-step"><span class="step-num">06</span><span>Difference-based coefficient pair
+                selection</span></div>
             <div class="algo-step"><span class="step-num">07</span><span>Quantization embedding (T=8)</span></div>
             <div class="algo-step"><span class="step-num">08</span><span>Inverse WHT + channel merge</span></div>
           </div>
@@ -291,4 +309,5 @@
 
   <script src="/static/script.js"></script>
 </body>
+
 </html>
