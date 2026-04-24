@@ -10,7 +10,7 @@ import base64
 import pickle
 import os
 
-from watermark import (
+from enhanced_watermark import (
     embed_watermark, extract_watermark,
     embed_watermark_enhanced, extract_watermark_enhanced,
     compute_psnr, compute_ssim, compute_nc, compute_ber,
